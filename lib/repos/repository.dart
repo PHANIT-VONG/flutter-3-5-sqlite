@@ -38,13 +38,13 @@ class Repository {
     return await _con!.query(table);
   }
 
-  // deletePeople(table, id) async {
-  //   var con = await database;
-  //   return await con!.delete(table, where: "id = ?", whereArgs: [id]);
-  // }
+  deletePeople(table, id) async {
+    var con = await database;
+    return await con!.delete(table, where: "id = ?", whereArgs: [id]);
+  }
 
-  // updatePeople(table, data, id) async {
-  //   var con = await database;
-  //   return await con!.update(table, data, where: "id= ?", whereArgs: [id]);
-  // }
+  updatePeople(table, data, id) async {
+    var con = await database;
+    return await con!.update(table, data, where: "id= ?", whereArgs: [id]);
+  }
 }

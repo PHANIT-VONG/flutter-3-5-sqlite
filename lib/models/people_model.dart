@@ -1,11 +1,11 @@
 class PeopleModel {
-  final int? id;
+  final int id;
   final String name;
   final String gender;
   final String address;
 
   PeopleModel({
-    this.id,
+    required this.id,
     required this.name,
     required this.gender,
     required this.address,

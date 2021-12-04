@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sqlite_3_5/controllers/people_controller.dart';
 import 'package:flutter_sqlite_3_5/models/people_model.dart';
 import 'package:flutter_sqlite_3_5/pages/create_people_page.dart';
+import 'package:flutter_sqlite_3_5/pages/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,16 +40,27 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 var _data = _peopleList[index];
                 return ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => DetailPage(peopleModel: _data),
+                      ),
+                    );
+                  },
                   leading: CircleAvatar(
                     child: Text(_data.id.toString()),
                   ),
-                  title: Text(_data.name),
+                  title: Text(
+                    _data.name,
+                    style: const TextStyle(fontSize: 20),
+                  ),
                   subtitle: Text(_data.address),
                   trailing: Text(_data.gender),
                 );
               },
               separatorBuilder: (context, index) {
-                return const Divider(color: Colors.grey);
+                return const Divider(color: Colors.grey, indent: 75, height: 0);
               },
               itemCount: _peopleList.length,
             )

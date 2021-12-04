@@ -20,15 +20,15 @@ class PeopleController {
     return peopleList;
   }
 
-  // Future<void> deletePeople(String printerId) {
-  //   return _repository.deletePeople('tbPeople', printerId);
-  // }
+  Future<void> deletePeople(int peopleId) {
+    return _repository.deletePeople('tbPeople', peopleId);
+  }
 
-  // Future<void> updatePeople(PeopleModel peopleModel) {
-  //   return _repository.updatePeople(
-  //     'tbPeople',
-  //     peopleModel.toMap(),
-  //     peopleModel.id,
-  //   );
-  // }
+  Future<void> updatePeople(PeopleModel peopleModel) {
+    return _repository.updatePeople(
+      'tbPeople',
+      peopleModel.toJson(),
+      peopleModel.id,
+    );
+  }
 }
